@@ -59,29 +59,6 @@ class LinkedList{
             // Increment size counter
             size++;
         }
-
-        void prepend(int data){
-
-            // Create new node
-            Node *n = new Node(data);
-
-            // Case 1 : Empty List
-            if(header == NULL){
-
-                header = n;
-                tail = n;
-            }
-            // Case 2 : List is not empty
-            else{
-
-                Node *temp = header;
-                header = n;
-                n->next = temp;
-            }
-
-            // Increment size counter
-            size++;
-        }
                 
         void removeFirst(){
 

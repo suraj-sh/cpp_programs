@@ -82,88 +82,6 @@ class LinkedList{
             // Increment size counter
             size++;
         }
-        
-        void toString(){
-
-            // Create a temp pointer that points to first node
-            Node *temp = header;
-
-            // Create loop that stops when pointer is NULL
-            while(temp != NULL){
-                
-                // Print data
-                cout << temp->data << " ";
-
-                // Advance pointer to next node 
-                temp = temp->next;
-            }
-            cout << endl;
-        }
-
-        void removeFirst(){
-
-            if(header != NULL){
-
-                Node *temp = header;
-                header = header->next;
-                delete temp;
-                size--;
-            }
-        }
-
-        void removeLast(){
-
-            // Case 1 : empty
-            // Case 2 : 1 node
-            if(header->next == NULL){
-
-                removeFirst();
-            }
-            // Case 3 : More than one node
-            else if(header != NULL){
-        
-                Node *curr = header;
-                Node *prev;
-                while (curr->next != NULL){
-                
-                    prev = curr;
-                    curr = curr->next;
-                }
-                tail = prev;
-                prev->next = NULL;
-                delete curr;
-                size--;
-            }
-            
-        }
-
-        void removeAt(int pos){
-
-            // Case 1 : check for valid pos
-            if(pos > size || pos < 1){
-                return;
-            }
-            // Case 2 : check if pos is the first node
-            else if(pos == 1){
-                removeFirst();
-            }
-            // Case 3 : check if pos is the last node
-            else if(pos == size){
-                removeLast();
-            }
-            // Case 4 : all other cases
-            else if(header != NULL){
-                Node *prev;
-                Node *curr = header;
-                for(int i = 1; i < pos; i++){
-                    prev = curr;
-                    curr = curr->next;
-                }
-                prev->next = curr->next;
-                delete curr;
-                size--;
-            }
-        }
 
         void insertAt(int pos, int data){
 
@@ -192,6 +110,23 @@ class LinkedList{
                 n->next = curr;
                 size++;
             }
+        }
+
+        void toString(){
+
+            // Create a temp pointer that points to first node
+            Node *temp = header;
+
+            // Create loop that stops when pointer is NULL
+            while(temp != NULL){
+                
+                // Print data
+                cout << temp->data << " ";
+
+                // Advance pointer to next node 
+                temp = temp->next;
+            }
+            cout << endl;
         }
         
 };

@@ -60,6 +60,17 @@ class LinkedList{
             size++;
         }
         
+        void removeFirst(){
+
+            if(header != NULL){
+
+                Node *temp = header;
+                header = header->next;
+                delete temp;
+                size--;
+            }
+        }
+
         void toString(){
 
             // Create a temp pointer that points to first node
@@ -75,17 +86,6 @@ class LinkedList{
                 temp = temp->next;
             }
             cout << endl;
-        }
-
-        void removeFirst(){
-
-            if(header != NULL){
-
-                Node *temp = header;
-                header = header->next;
-                delete temp;
-                size--;
-            }
         }
         
 };
